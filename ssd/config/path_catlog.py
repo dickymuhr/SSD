@@ -4,6 +4,18 @@ import os
 class DatasetCatalog:
     DATA_DIR = 'datasets'
     DATASETS = {
+        'gdd_train':{
+            "data_dir":"train",
+            "ann_file": "annotations/gdd_train.json"
+        },
+        'gdd_val':{
+            "data_dir":"val",
+            "ann_file": "annotations/gdd_val.json"
+        },
+        'gdd_test':{
+            "data_dir":"test",
+            "ann_file": "annotations/gdd_test.json"
+        },
         'voc_2007_train': {
             "data_dir": "VOC2007",
             "split": "train"
