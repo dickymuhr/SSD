@@ -10,7 +10,7 @@ class GDDDataset(torch.utils.data.Dataset):
     class_names = ('__background__',
                    'gun')
 
-    def __init__(self, data_dir, ann_file, transform=None, target_transform=None, remove_empty=False):
+    def __init__(self, data_dir, ann_file, transform=None, target_transform=None, remove_empty=True):
         from pycocotools.coco import COCO
         self.coco = COCO(ann_file)
         self.data_dir = data_dir

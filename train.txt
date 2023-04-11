@@ -1,0 +1,1 @@
+python train.py --config-file configs/vgg_ssd512_coco_gdd.yaml

@@ -1,5 +1,5 @@
 MODEL:
-  NUM_CLASSES: 1
+  NUM_CLASSES: 2
   BACKBONE:
     NAME: 'efficient_net-b3'
     OUT_CHANNELS: (48, 136, 384, 256, 256, 256)
@@ -7,12 +7,12 @@ INPUT:
   IMAGE_SIZE: 300
 DATASETS:
   TRAIN: ("gdd_train", )
-  TEST: ("gdd_test", )
+  TEST: ("gdd_val", )
 SOLVER:
-  MAX_ITER: 160000
-  LR_STEPS: [105000, 135000]
+  MAX_ITER: 150000
+  LR_STEPS: [100000, 125000]
   GAMMA: 0.1
-  BATCH_SIZE: 24
+  BATCH_SIZE: 8
   LR: 1e-3
 
-OUTPUT_DIR: 'outputs/efficient_net_b3_ssd300_gdd'
+OUTPUT_DIR: 'outputs/efficient_net_b3_ssd300_gdd_voc_val'

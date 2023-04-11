@@ -1,7 +1,7 @@
 import argparse
 import logging
 import os
-
+import wandb
 import torch
 import torch.distributed as dist
 
@@ -46,6 +46,8 @@ def train(cfg, args):
 
 
 def main():
+
+    
     parser = argparse.ArgumentParser(description='Single Shot MultiBox Detector Training With PyTorch')
     parser.add_argument(
         "--config-file",
@@ -72,6 +74,9 @@ def main():
         nargs=argparse.REMAINDER,
     )
     args = parser.parse_args()
+    
+    project_name = args.config_file.replace("configs/","").replace(".yaml","")
+    wandb.init(name=project_name, project="ssd", entity="diccode")
     num_gpus = int(os.environ["WORLD_SIZE"]) if "WORLD_SIZE" in os.environ else 1
     args.distributed = num_gpus > 1
     args.num_gpus = num_gpus

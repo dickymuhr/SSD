@@ -28,3 +28,6 @@ dist/
 
 # dataset
 /datasets
+/wandb
+nohup.out
+/outputs

@@ -90,5 +90,16 @@ class DatasetCatalog:
                 ann_file=os.path.join(coco_root, attrs["ann_file"]),
             )
             return dict(factory="COCODataset", args=args)
+        elif "gdd" in name:
+            coco_root = DatasetCatalog.DATA_DIR
+            if 'COCO_ROOT' in os.environ:
+                coco_root = os.environ['COCO_ROOT']
+
+            attrs = DatasetCatalog.DATASETS[name]
+            args = dict(
+                data_dir=os.path.join(coco_root, attrs["data_dir"]),
+                ann_file=os.path.join(coco_root, attrs["ann_file"]),
+            )
+            return dict(factory="GDDDataset", args=args)
 
         raise RuntimeError("Dataset not available: {}".format(name))
