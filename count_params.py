@@ -100,15 +100,15 @@ def main():
     if cfg.OUTPUT_DIR:
         mkdir(cfg.OUTPUT_DIR)
 
-    logger = setup_logger("SSD", dist_util.get_rank(), cfg.OUTPUT_DIR)
-    logger.info("Using {} GPUs".format(num_gpus))
-    logger.info(args)
+    # logger = setup_logger("SSD", dist_util.get_rank(), cfg.OUTPUT_DIR)
+    # logger.info("Using {} GPUs".format(num_gpus))
+    # logger.info(args)
 
-    logger.info("Loaded configuration file {}".format(args.config_file))
-    with open(args.config_file, "r") as cf:
-        config_str = "\n" + cf.read()
-        logger.info(config_str)
-    logger.info("Running with config:\n{}".format(cfg))
+    # logger.info("Loaded configuration file {}".format(args.config_file))
+    # with open(args.config_file, "r") as cf:
+    #     config_str = "\n" + cf.read()
+    #     logger.info(config_str)
+    # logger.info("Running with config:\n{}".format(cfg))
 
     model = train(cfg, args)
 
