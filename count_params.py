@@ -43,7 +43,7 @@ def train(cfg, args):
 
     # model = do_train(cfg, model, train_loader, optimizer, scheduler, checkpointer, device, arguments, args)
     count_params = count_parameters(model)
-    return count_parameters
+    return count_params
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
